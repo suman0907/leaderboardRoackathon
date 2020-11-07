@@ -108,7 +108,7 @@ function getTopScorer(gameTime)
         // The Promise constructor should catch any errors thrown on
         // this tick. Alternately, try/catch and reject(err)  catch.
        
-        const query_str='select userid, sum(score) As sum_score from user_play where gameplay>? group by userid order by sum_score desc limit 2';
+        const query_str='select userid, sum(score) As sum_score from user_play where gameplay>? group by userid order by sum_score desc limit 3';
         var query_var = [gameTime];
         db.query(query_str, query_var, function (err, rows, fields) {
             // Call reject on error states,
